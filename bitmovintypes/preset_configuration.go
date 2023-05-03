@@ -7,6 +7,7 @@ const (
 	PresetConfigurationLiveLowLatency  = "LIVE_LOW_LATENCY"
 
 	PresetConfigurationVodHighQuality    = "VOD_HIGH_QUALITY"
+	PresetConfigurationVodQuality        = "VOD_QUALITY"
 	PresetConfigurationVodStandard       = "VOD_STANDARD"
 	PresetConfigurationVodSpeed          = "VOD_SPEED"
 	PresetConfigurationVodHighSpeed      = "VOD_HIGH_SPEED"
