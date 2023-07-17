@@ -36,6 +36,7 @@ type H265CodecConfiguration struct {
 	SAO                                    *bool                             `json:"sao,omitempty"`
 	CRF                                    *float64                          `json:"crf,omitempty"`
 	ColorConfig                            ColorConfig                       `json:"colorConfig,omitempty"`
+	DynamicRangeFormat                     bitmovintypes.DynamicRange        `json:"dynamicRangeFormat,omitempty"`
 	MasterDisplay                          *string                           `json:"masterDisplay,omitempty"`
 	MaxContentLightLevel                   *int64                            `json:"maxContentLightLevel,omitempty"`
 	MaxPictureAverageLightLevel            *int64                            `json:"maxPictureAverageLightLevel,omitempty"`
