@@ -3,8 +3,8 @@ package bitmovintypes
 type DynamicRange string
 
 const (
-	DynamicRangeSDR         EncodingMode = "SDR"
-	DynamicRangeHLG         EncodingMode = "HLG"
-	DynamicRangeHDR10       EncodingMode = "HDR10"
-	DynamicRangeDolbyVision EncodingMode = "DOLBY_VISION"
+	DynamicRangeSDR         DynamicRange = "SDR"
+	DynamicRangeHLG         DynamicRange = "HLG"
+	DynamicRangeHDR10       DynamicRange = "HDR10"
+	DynamicRangeDolbyVision DynamicRange = "DOLBY_VISION"
 )
