@@ -182,6 +182,26 @@ type DolbyAtmosIngestInputStreamResponse struct {
 	Data      DolbyAtmosIngestInputStreamData `json:"data,omitempty"`
 }
 
+type DolbyVisionIngestInputStream struct {
+	ID                *string                `json:"id,omitempty"`
+	Name              *string                `json:"name,omitempty"`
+	Description       *string                `json:"description,omitempty"`
+	CustomData        map[string]interface{} `json:"customData,omitempty"`
+	InputID           *string                `json:"inputId"`
+	VideoInputPath    *string                `json:"videoInputPath"`
+	MetadataInputPath *string                `json:"metadataInputPath"`
+}
+
+type DolbyVisionIngestInputStreamData struct {
+	Result   DolbyVisionIngestInputStream `json:"result,omitempty"`
+}
+
+type DolbyVisionIngestInputStreamResponse struct {
+	RequestID *string                          `json:"requestId,omitempty"`
+	Status    bitmovintypes.ResponseStatus     `json:"status,omitempty"`
+	Data      DolbyVisionIngestInputStreamData `json:"data,omitempty"`
+}
+
 type TimeBasedTrimmingInputStream struct {
 	ID            *string                `json:"id,omitempty"`
 	Name          *string                `json:"name,omitempty"`
