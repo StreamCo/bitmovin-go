@@ -129,17 +129,17 @@ func (s *EncodingService) AddIngestStream(encodingID string, name string, inputI
 	return &r, nil
 }
 
-func (s *EncodingService) AddDolbyVisionInputStream(encodingID string, name string, inputID string, videoInputPath string, metadataInputPath string) (*models.DolbyVisionStreamResponse,error) {
+func (s *EncodingService) AddDolbyVisionInputStream(encodingID string, name string, inputID string, videoInputPath string, metadataInputPath string) (*models.DolbyVisionStreamResponse, error) {
 	dolbyVisionStream := struct {
 		Name              string `json:"name"`
 		InputID           string `json:"inputId"`
-		videoInputPath    string `json:"videoInputPath"`
-		metadataInputPath string `json:"metadataInputPath,omitempty"`
+		VideoInputPath    string `json:"videoInputPath"`
+		MetadataInputPath string `json:"metadataInputPath,omitempty"`
 	}{
-		Name:           name,
-		InputID:        inputID,
-		videoInputPath: videoInputPath,
-		metadataInputPath: metadataInputPath,
+		Name:              name,
+		InputID:           inputID,
+		VideoInputPath:    videoInputPath,
+		MetadataInputPath: metadataInputPath,
 	}
 
 	b, _ := json.Marshal(dolbyVisionStream)
