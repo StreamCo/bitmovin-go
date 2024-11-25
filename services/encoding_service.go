@@ -129,6 +129,33 @@ func (s *EncodingService) AddIngestStream(encodingID string, name string, inputI
 	return &r, nil
 }
 
+func (s *EncodingService) AddDolbyVisionInputStream(encodingID string, name string, inputID string, videoInputPath string, metadataInputPath string) (*models.DolbyVisionStreamResponse,error) {
+	dolbyVisionStream := struct {
+		Name              string `json:"name"`
+		InputID           string `json:"inputId"`
+		videoInputPath    string `json:"videoInputPath"`
+		metadataInputPath string `json:"metadataInputPath,omitempty"`
+	}{
+		Name:           name,
+		InputID:        inputID,
+		videoInputPath: videoInputPath,
+		metadataInputPath: metadataInputPath,
+	}
+
+	b, _ := json.Marshal(dolbyVisionStream)
+	path := EncodingEndpoint + "/" + encodingID + "/" + "input-streams" + "/" + "dolby-vision"
+	o, err := s.RestService.Create(path, b)
+	if err != nil {
+		return nil, err
+	}
+	var r models.DolbyVisionStreamResponse
+	err = json.Unmarshal(o, &r)
+	if err != nil {
+		return nil, fmt.Errorf("failed to unmarshal response due to error %q. Original text was: %s", err, string(o))
+	}
+	return &r, nil
+}
+
 // not part of the original bitmovin API
 func (s *EncodingService) AddTrimmingTimeBasedStream(encodingID string, ingestStreamID string, offset float64, duration float64) (*models.StreamResponse, error) {
 
