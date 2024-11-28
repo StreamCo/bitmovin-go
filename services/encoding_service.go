@@ -143,7 +143,7 @@ func (s *EncodingService) AddDolbyVisionInputStream(encodingID string, name stri
 	}
 
 	b, _ := json.Marshal(dolbyVisionStream)
-	path := EncodingEndpoint + "/" + encodingID + "/" + "input-streams" + "/" + "dolby-vision"
+	path := EncodingEndpoint + "/" + encodingID + "/input-streams/dolby-vision"
 	o, err := s.RestService.Create(path, b)
 	if err != nil {
 		return nil, err
