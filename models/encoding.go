@@ -89,6 +89,25 @@ type StreamData struct {
 	Details          []Detail `json:"details,omitempty"`
 }
 
+type DolbyVisionStreamData struct {
+	//Success fields
+	Result   DolbyVisionStream `json:"result,omitempty"`
+	Messages []Message         `json:"messages,omitempty"`
+
+	//Error fields
+	Code             *int64   `json:"code,omitempty"`
+	Message          *string  `json:"message,omitempty"`
+	DeveloperMessage *string  `json:"developerMessage,omitempty"`
+	Links            []Link   `json:"links,omitempty"`
+	Details          []Detail `json:"details,omitempty"`
+}
+
+type DolbyVisionStreamResponse struct {
+	RequestID *string                      `json:"requestId,omitempty"`
+	Status    bitmovintypes.ResponseStatus `json:"status,omitempty"`
+	Data      DolbyVisionStreamData        `json:"data,omitempty"`
+}
+
 type StreamResponse struct {
 	RequestID *string                      `json:"requestId,omitempty"`
 	Status    bitmovintypes.ResponseStatus `json:"status,omitempty"`

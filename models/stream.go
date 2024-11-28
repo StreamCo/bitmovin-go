@@ -17,6 +17,15 @@ type Stream struct {
 	PerTitleSettings     *StreamPerTitleSettings         `json:"perTitleSettings,omitempty"`
 }
 
+type DolbyVisionStream struct {
+	ID                *string `json:"id,omitempty"`
+	Name              *string `json:"name,omitempty"`
+	Description       *string `json:"description,omitempty"`
+	InputID           *string `json:"inputId"`
+	VideoInputPath    *string `json:"videoInputPath"`
+	MetadataInputPath *string `json:"metadataInputPath"`
+}
+
 type StreamPerTitleSettings struct {
 	StreamFixedResolutionAndBitrateSettings `json:"fixedResolutionAndBitrateSettings"`
 }
