@@ -10,6 +10,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/streamco/bitmovin-go/bitmovin"
@@ -135,9 +136,14 @@ func (r *RestService) Delete(relativeURL string) ([]byte, error) {
 	return body, nil
 }
 
-//TODO default value version
+// TODO default value version
 func (r *RestService) List(relativeURL string, offset int64, limit int64) ([]byte, error) {
-	queryParams := fmt.Sprintf("?offset=%v&limit=%v", offset, limit)
+	var queryParams string
+	if strings.Contains(relativeURL, "?") {
+		queryParams = fmt.Sprintf("&offset=%v&limit=%v", offset, limit)
+	} else {
+		queryParams = fmt.Sprintf("?offset=%v&limit=%v", offset, limit)
+	}
 	fullURL := *r.Bitmovin.APIBaseURL + relativeURL + queryParams
 
 	req, err := http.NewRequest("GET", fullURL, nil)
@@ -212,6 +218,7 @@ func (r *RestService) Update(relativeURL string, input []byte) ([]byte, error) {
 	}
 	req, err := http.NewRequest("PUT", fullURL, bytes.NewBuffer(input))
 	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Accept", "application/json")
 	req.Header.Set("X-Api-Key", *r.Bitmovin.APIKey)
 	if r.Bitmovin.OrganizationID != nil {
 		req.Header.Set("X-Tenant-Org-Id", *r.Bitmovin.OrganizationID)
@@ -246,7 +253,9 @@ func unmarshalError(body []byte) (*models.DataEnvelope, error) {
 	var d models.DataEnvelope
 	err := json.Unmarshal(body, &d)
 	if err != nil {
-		return nil, err
+		// instead of bubbling the unmarshall error, let us return back the actual message so that it is not lost
+		d.Data.Message = fmt.Sprintf("unmarshall failed with error %s, this is the actual body: %s", err.Error(), string(body))
+		return &d, nil
 	}
 	return &d, nil
 }
