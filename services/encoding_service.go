@@ -175,7 +175,7 @@ func (s *EncodingService) AddTrimmingTimeBasedStream(encodingID string, ingestSt
 }
 
 // not part of the original bitmovin API
-func (s *EncodingService) AddConcatenatioinInputStream(encodingID string, ingestStreams []models.ConcatenationStream) (*models.StreamResponse, error) {
+func (s *EncodingService) AddConcatenationInputStream(encodingID string, ingestStreams []models.ConcatenationStream) (*models.StreamResponse, error) {
 	postData := struct {
 		Concatenation []models.ConcatenationStream `json:"concatenation"`
 	}{
