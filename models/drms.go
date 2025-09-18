@@ -54,13 +54,13 @@ type WidevineCencDrm struct {
 }
 
 type PlayReadyCencDrm struct {
-	LaURL *string `json:"laUrl,omitEmpty"`
-	PSSH  *string `json:"pssh,omitEmpty"`
+	LaURL *string `json:"laUrl,omitempty"`
+	PSSH  *string `json:"pssh,omitempty"`
 }
 
 type FairPlayCencDrm struct {
-	IV  *string `json:"iv,omitEmpty"`
-	URI *string `json:"uri,omitEmpty"`
+	IV  *string `json:"iv,omitempty"`
+	URI *string `json:"uri,omitempty"`
 }
 
 type CencDrm struct {
@@ -72,10 +72,10 @@ type CencDrm struct {
 	KID                     *string                `json:"kid,omitempty"`
 	Outputs                 []Output               `json:"outputs,omitempty"`
 	Widevine                *WidevineCencDrm       `json:"widevine,omitempty"`
-	PlayReady               *PlayReadyCencDrm      `json:"playReady,omitEmpty"`
-	FairPlay                *FairPlayCencDrm       `json:"fairPlay,omitEmpty"`
-	IvSize                  bitmovintypes.IvSize   `json:"ivSize,omitEmpty"`
-	EnablePiffCompatibility *bool                  `json:"enablePiffCompatibility,omitEmpty"`
+	PlayReady               *PlayReadyCencDrm      `json:"playReady,omitempty"`
+	FairPlay                *FairPlayCencDrm       `json:"fairPlay,omitempty"`
+	IvSize                  bitmovintypes.IvSize   `json:"ivSize,omitempty"`
+	EnablePiffCompatibility *bool                  `json:"enablePiffCompatibility,omitempty"`
 }
 
 func (p *CencDrm) AddOutput(output *Output) {
