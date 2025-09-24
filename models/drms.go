@@ -63,6 +63,13 @@ type FairPlayCencDrm struct {
 	URI *string `json:"uri,omitempty"`
 }
 
+type EncryptionType string
+
+const (
+	EncryptionOptionCTR EncryptionType = "ctr"
+	EncryptionOptionCBC EncryptionType = "cbc"
+)
+
 type CencDrm struct {
 	ID                      *string                `json:"id,omitempty"`
 	Name                    *string                `json:"name,omitempty"`
@@ -75,6 +82,7 @@ type CencDrm struct {
 	PlayReady               *PlayReadyCencDrm      `json:"playReady,omitempty"`
 	FairPlay                *FairPlayCencDrm       `json:"fairPlay,omitempty"`
 	IvSize                  bitmovintypes.IvSize   `json:"ivSize,omitempty"`
+	Encryption              EncryptionType         `json:"encryption,omitempty"`
 	EnablePiffCompatibility *bool                  `json:"enablePiffCompatibility,omitempty"`
 }
 
