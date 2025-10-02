@@ -10,15 +10,16 @@ type Infrastructure struct {
 }
 
 type Encoding struct {
-	ID               *string                      `json:"id,omitempty"`
-	Name             *string                      `json:"name,omitempty"`
-	Description      *string                      `json:"description,omitempty"`
-	CustomData       map[string]interface{}       `json:"customData,omitempty"`
-	EncoderVersion   bitmovintypes.EncoderVersion `json:"encoderVersion,omitempty"`
-	CloudRegion      bitmovintypes.CloudRegion    `json:"cloudRegion,omitempty"`
-	Status           string                       `json:"status,omitempty"`
-	InfrastructureID *string                      `json:"infrastructureId,omitempty"`
-	Infrastructure   *Infrastructure              `json:"infrastructure,omitempty"`
+	ID                   *string                      `json:"id,omitempty"`
+	Name                 *string                      `json:"name,omitempty"`
+	Description          *string                      `json:"description,omitempty"`
+	CustomData           map[string]interface{}       `json:"customData,omitempty"`
+	EncoderVersion       bitmovintypes.EncoderVersion `json:"encoderVersion,omitempty"`
+	CloudRegion          bitmovintypes.CloudRegion    `json:"cloudRegion,omitempty"`
+	FallbackCloudRegions []string                     `json:"fallbackCloudRegions,omitempty"`
+	Status               string                       `json:"status,omitempty"`
+	InfrastructureID     *string                      `json:"infrastructureId,omitempty"`
+	Infrastructure       *Infrastructure              `json:"infrastructure,omitempty"`
 }
 
 type EncodingData struct {
