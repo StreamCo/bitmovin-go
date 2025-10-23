@@ -82,7 +82,7 @@ type CencDrm struct {
 	PlayReady               *PlayReadyCencDrm      `json:"playReady,omitempty"`
 	FairPlay                *FairPlayCencDrm       `json:"fairPlay,omitempty"`
 	IvSize                  bitmovintypes.IvSize   `json:"ivSize,omitempty"`
-	Encryption              EncryptionType         `json:"encryption,omitempty"`
+	Encryption              EncryptionType         `json:"encryptionMode,omitempty"`
 	EnablePiffCompatibility *bool                  `json:"enablePiffCompatibility,omitempty"`
 }
 
