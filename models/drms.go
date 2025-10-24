@@ -66,8 +66,8 @@ type FairPlayCencDrm struct {
 type EncryptionType string
 
 const (
-	EncryptionOptionCTR EncryptionType = "ctr"
-	EncryptionOptionCBC EncryptionType = "cbc"
+	EncryptionOptionCTR EncryptionType = "CTR"
+	EncryptionOptionCBC EncryptionType = "CBC"
 )
 
 type CencDrm struct {
